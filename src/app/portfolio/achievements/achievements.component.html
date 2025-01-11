@@ -1,0 +1,12 @@
+<div class="w-full flex sm:flex-col flex-wrap pt-8 gap-x-5 gap-y-8 justify-center pb-8 sm:pr-5">
+    <div class="group w-[45%] sm:w-auto h-[25rem] flex flex-col gap-1 bg-[#202022] shadow-2xl rounded-lg" *ngFor="let item of achievements">
+        <div class="w-full h-[60%] bg-center overflow-hidden rounded-lg"> 
+            <img src="../../../assets/portfolio/project-6.png" alt="project" class="brightness-50 group-hover:brightness-100 group-hover:scale-125 transition ease-in-out duration-200">
+        </div>
+        <div class="p-5 w-full h-[40%]">
+            <div class="text-[#9D9D9F] text-[0.8rem]">{{item.date}}</div>
+            <div class="text-white text-[1.3rem] font-medium py-1 group-hover:text-[#ffdb70]">{{item.title}}</div>
+            <div class="text-[#9D9D9F] text-[0.9rem]">Lorem ipsum, dolor sit amet consectetur adipisicing elit</div>
+        </div>
+    </div>
+</div>

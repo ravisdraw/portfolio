@@ -1,0 +1,152 @@
+<div class="w-screen h-auto flex gap-5 bg-[#121212] p-20 font-poppins tracking-wide sm:flex-col sm:p-5 sm:relative" id="scrollTop">
+    <!--Profile-->
+    <div class="w-[23%] h-full sm:w-full">
+        <div class="w-full h-full  bg-[#1E1E1F] rounded-xl border-[1.5px] px-8 pt-16 pb-8 border-[#333333] 
+             flex flex-col place-items-center gap-4 sm:relative transition-all ease-in-out duration-100">
+            <div class="w-36 h-36 bg-[#333333] rounded-xl flex justify-center place-items-center">
+                <img src="../../assets/portfolio/my-avatar.png" alt="avatar" class="w-[6rem] cursor-pointer 
+                hover:scale-110 hover:transition-all hover:ease-in-out hover:rotate-2">
+            </div>
+            <div class="font-medium text-[1.5rem] text-white">Ravikumar R</div>
+            <div class="text-[0.7rem] text-white bg-[#2B2B2C] rounded-md p-2 px-3 hover:text-[#ffdb70]">Full Stack
+                Developer</div>
+            <hr [ngClass]="isNavbarMobile? 'sm:hidden' : 'sm:block'" class="h-[1.6px] my-4 bg-[#333333] border-0 w-full mx-0 p-0 ">
+
+            <div class="w-full h-auto" [ngClass]="isNavbarMobile? 'sm:hidden' : 'sm:block'">
+                <div class="flex flex-col w-full gap-3 pb-5" *ngFor="let profile of profileDetails">
+                    <div class=" w-full flex items-center gap-3">
+                        <div class="icon-box w-[2.5rem] h-[2.5rem]">
+                            <ion-icon class="m-0 p-0" [attr.name]="profile.icon"></ion-icon>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="text-[#878787] text-[12px] font-semibold m-0 p-0">{{profile.label}}</p>
+                            <p class="text-white text-[14px] m-0 p-0">{{profile.value}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden sm:flex sm:absolute sm:top-3 sm:right-0 sm:place-items-end sm:flex-col">
+                <img #hamburger src="../../assets/portfolio/hamburger.svg" class="w-10 rotate-180" alt="side-nav" (click)="toggleHamburger()">
+                <div class="w-auto flex-col bg-[#2b2b2cd3] gap-5 p-5 rounded-bl-[1.5rem] border-[1.5px]  border-[#333333] font-semibold text-white justify-around transition-all ease-in-out duration-75"
+                #navbarMobile [ngClass]="isNavbarMobile?'flex': 'hidden'">
+                    <div class="cursor-pointer transition-all ease-in text-[#9D9D9F] text-[0.9rem]"
+                        *ngFor="let item of navBar" (click)="setActiveNavbarMobile(item)">{{item}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Main Content-->
+    <div class="w-[77%] sm:w-full" #mainContent>
+        <div class="testimonials w-full sm:h-full h-[85vh] overflow-y-scroll  bg-[#1E1E1F] rounded-xl border-[1.5px]  border-[#333333] pl-10 sm:pl-5">
+
+            <!--Title & Navbar-->
+            <div class="w-full flex pb-5">
+                <div class="w-[40%] sm:w-full sm:pt-5 text-[1.8rem] text-white font-bold flex place-items-end ease-in-out duration-100">
+                    {{title}}</div>
+                <div class="w-[60%] flex bg-[#2B2B2C] p-5 rounded-bl-[1.5rem] border-[1.5px]  border-[#333333] font-semibold text-white justify-around sm:hidden"
+                    #navbar>
+                    <div class="cursor-pointer transition-all ease-in text-[#9D9D9F] text-[0.9rem]"
+                        *ngFor="let item of navBar" (click)="setActiveNavbar(item)">{{item}}</div>
+                </div>
+            </div>
+
+            <!--Title underline-->
+            <div class="w-12 h-1 rounded-md bg-[#ffdb70]"></div>
+
+            <!--About Me-->
+            <div *ngIf="selectedNavbar==='About Me'" [@toggle] class="w-full flex flex-col gap-8 py-5 pr-5">
+                <div class="text-[#878787] text-[0.9rem]">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Aspernatur adipisci eligendi ut sunt necessitatibus aperiam quae saepe, obcaecati dolorem est animi
+                    debitis repellendus, inventore illo exercitationem reiciendis dolores quod. Vel.</div>
+                <div class="text-[#878787] text-[0.9rem]">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Aspernatur adipisci eligendi ut sunt necessitatibus aperiam quae saepe, obcaecati dolorem est animi
+                    debitis repellendus, inventore illo exercitationem reiciendis dolores quod. Vel. Lorem ipsum dolor
+                    sit amet consectetur adipisicing elit. Exercitationem perspiciatis labore, repudiandae vitae fuga,
+                    error enim odit atque amet dignissimos dolores at explicabo officia quisquam iure facilis velit
+                    molestias. Fugiat.</div>
+                <div class="text-[1.4rem] font-semibold text-white tracking-tight">What I'm Doing</div>
+                <!--What I'm Doing-->
+                <div class="w-full flex flex-wrap gap-x-6 gap-y-5 sm:gap-x-0 justify-center sm:flex-col">
+                    <div class="icon-box w-[45%] sm:w-full flex p-8 gap-3 sm:p-5 justify-between" *ngFor="let item of whatIamDoing">
+                        <div class="w-[10%] flex justify-start place-items-center">
+                            <ion-icon class="text-[2rem]" [attr.name]="item.icon"></ion-icon>
+                        </div>
+                        <div class="w-[90%] flex flex-col gap-3">
+                            <div class="text-white font-semibold text-[1rem]">{{item.title}}</div>
+                            <div class="text-[#878787] text-[0.8rem]">{{item.desc}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-[1.4rem] font-semibold text-white tracking-tight">Testimonials</div>
+                <!--Testimonials-->
+                <div class="testimonials flex overflow-x-auto gap-8">
+                    <div class="flex-none pb-5 relative" *ngFor="let item of whatIamDoing">
+                        <div class="icon-box w-[25rem] flex p-8">
+                            <div class="w-[30%]">
+                                <div
+                                    class="w-20 h-20 z-50 bg-[#333333] rounded-xl flex justify-center place-items-center">
+                                    <img src="../../assets/portfolio/my-avatar.png" alt="avatar" class="w-[4rem]">
+                                </div>
+                            </div>
+                            <div class="w-[70%] flex flex-col gap-3">
+                                <div class="text-white font-semibold text-[1rem]">{{item.title}}</div>
+                                <div class="text-[#878787] text-[0.8rem]">{{item.desc}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-[1.4rem] font-semibold text-white tracking-tight">Companies Worked</div>
+                <!--Companies-->
+                <div class="w-full h-[8rem] p-3 flex gap-8 place-items-center">
+                    <div class="h-full flex flex-col place-items-center justify-end">
+                        <img src="../../assets/portfolio/tcs.png" alt="tcs" class="w-[13rem] brightness-0 invert">
+                        <div class="text-[#878787] font-semibold text-[0.8rem]">2020-2023</div>
+                    </div>
+                    <div class="h-full flex flex-col place-items-center justify-end">
+                        <img src="../../assets/portfolio/intellect.png" alt="intellect"
+                            class="w-[10rem] brightness-0 invert">
+                        <div class="text-[#878787] font-semibold text-[0.8rem] pt-2">2023-2025</div>
+                    </div>
+                </div>
+            </div>
+
+            <app-resume *ngIf="selectedNavbar==='Resume'" [@toggle]></app-resume>
+            <app-projects *ngIf="selectedNavbar==='Portfolio'" [@toggle]></app-projects>
+            <app-achievements *ngIf="selectedNavbar==='Achievements'" [@toggle]></app-achievements>
+
+            <!--Contact-->
+            <div *ngIf="selectedNavbar==='Contact'" class="w-full py-5 pr-5" [@toggle]>
+                <div class="w-full rounded-lg border-[1.5px] relative border-[#333333]" style="filter:grayscale(1) invert(1)">
+                    <div class="loader absolute inset-0 m-auto" *ngIf="!mapLoaded"></div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2310.424720866158!2d80.14062231416143!3d13.12098250726874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1734072004532!5m2!1sen!2sin"
+                        width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" (load)="mapLoaded = true"></iframe>
+                </div>
+                <div class="w-full flex flex-col py-8 gap-5">
+                    <div class="text-[1.4rem] font-semibold text-white tracking-tight mb-3">Contact Form</div>
+                    <form class="w-full flex flex-col gap-5" [formGroup]="contactForm">
+                        <div class="w-full flex gap-3">
+                            <input class="w-full p-3 bg-transparent border rounded-md border-2-[#ffdb70] outline-none text-white" type="text" placeholder="Full Name" formControlName="name">
+                            <input class="w-full p-3 bg-transparent border rounded-md border-2-[#ffdb70] outline-none text-white" type="email" placeholder="Email Address" formControlName="mailid">
+                        </div>
+                        <textarea class="w-full p-3 bg-transparent border rounded-md border-2-[#ffdb70] outline-none text-white" rows="4" placeholder="Message" formControlName="message"></textarea>
+                    </form>
+                    <div class="w-full flex justify-end">
+                        <div class="icon-box w-52 h-16 cursor-pointer" (click)="submitForm()">
+                            <ion-icon class="text-[1.2rem]" name="send-outline"></ion-icon>
+                            <div class="text-[0.9rem] pl-5">Send Message</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Scroll Top-->
+    <div *ngIf="isScrollTopVisible" class="hidden sm:block sm:fixed sm:bottom-10 sm:right-10 opacity-70 sm:z-10 sm:bg-[#ffdb70] sm:rounded-full sm:w-8">
+        <img src="../../assets/portfolio/arrow-up.svg" alt="arrow-up" (click)="scrollToTop()">
+    </div>
+</div>

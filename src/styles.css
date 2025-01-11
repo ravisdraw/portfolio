@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent all child elements from having their own scroll */
+* {
+    overflow: unset; /* Resets the overflow from '*' */
+  }
+  
+  /* Default behavior: lock scrolling */
+  html, body {
+    margin: 0;
+    overflow: hidden;
+  }
+  

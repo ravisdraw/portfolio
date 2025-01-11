@@ -1,0 +1,69 @@
+<div class="w-full h-auto pt-8 pb-10 flex flex-col gap-8">
+    <!--Education-->
+    <div class="w-full flex">
+        <div class="w-[10%] sm:w-auto flex flex-col place-items-center">
+            <div class="icon-box w-[2.8rem] h-[2.8rem] sm:w-[2.4rem] sm:h-[2.4rem]">
+                <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <div class="w-[1px] opacity-50 h-8 bg-[#ffdb70]"></div>
+            <ion-icon class="text-[#ffdb70] text-[1.2rem]" name="heart-circle-outline"></ion-icon>
+            <div class="w-[1px] opacity-50 h-[4.4rem] sm:h-[5.8rem] bg-[#ffdb70]"></div>
+            <ion-icon class="text-[#ffdb70] text-[1.2rem]" name="heart-circle-outline"></ion-icon>
+            <div class="w-[1px] opacity-50 h-[4.4rem] sm:h-[5.8rem] bg-[#ffdb70]"></div>
+            <ion-icon class="text-[#ffdb70] text-[1.2rem]" name="heart-circle-outline"></ion-icon>
+        </div>
+        <div class="w-[90%] pt-2 sm:pt-0 sm:pl-3 flex flex-col gap-5">
+            <div class="text-[1.4rem] font-semibold text-white tracking-tight mb-3">Education</div>
+            <div class="flex flex-col gap-1" *ngFor="let school of education">
+                <div class="text-[1rem] font-semibold text-white tracking-tight">{{school.school}}</div>
+                <div class="text-[0.8rem] font-medium text-[#ffdb70] tracking-tight">{{school.year}}</div>
+                <div class="text-[0.8rem] font-medium text-[#91ff70] tracking-tight">{{school.mark}}</div>
+            </div>
+        </div>
+    </div>
+
+    <!--Experience-->
+    <div class="w-full flex">
+        <div class="w-[10%] sm:w-auto flex flex-col place-items-center">
+            <div class="icon-box w-[2.8rem] h-[2.8rem] sm:w-[2.4rem] sm:h-[2.4rem]">
+                <ion-icon name="laptop-outline"></ion-icon>
+            </div>
+            <div class="w-[1px] opacity-50 h-8 bg-[#ffdb70]"></div>
+            <ion-icon class="text-[#ffdb70] text-[1.2rem]" name="heart-circle-outline"></ion-icon>
+            <div class="w-[1px] opacity-50 h-[4.4rem] sm:h-[5.8rem] bg-[#ffdb70]"></div>
+            <ion-icon class="text-[#ffdb70] text-[1.2rem]" name="heart-circle-outline"></ion-icon>
+            <div class="w-[1px] opacity-50 h-[4.4rem] sm:h-[5.8rem] bg-[#ffdb70]"></div>
+            <ion-icon class="text-[#ffdb70] text-[1.2rem]" name="heart-circle-outline"></ion-icon>
+        </div>
+        <div class="w-[90%] pt-2 sm:pt-0 sm:pl-3 flex flex-col gap-5">
+            <div class="text-[1.4rem] font-semibold text-white tracking-tight mb-3">Experience</div>
+            <div class="flex flex-col gap-1" *ngFor="let school of education">
+                <div class="text-[1rem] font-semibold text-white tracking-tight">{{school.school}}</div>
+                <div class="text-[0.8rem] font-medium text-[#ffdb70] tracking-tight">{{school.year}}</div>
+                <div class="text-[0.8rem] font-medium text-[#91ff70] tracking-tight">{{school.mark}}</div>
+            </div>
+        </div>
+    </div>
+
+    <!--Skills-->
+    <div class="w-full flex">
+        <div class="w-[10%] sm:w-auto flex flex-col place-items-center">
+            <div class="icon-box w-[2.8rem] h-[2.8rem] sm:w-[2.4rem] sm:h-[2.4rem]">
+                <ion-icon name="code-working-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="w-[90%] sm:pt-0 sm:pl-3 flex flex-col gap-5">
+            <div class="text-[1.4rem] font-semibold text-white tracking-tight mb-3">My Skills</div>
+            <div class="w-[90%] sm:w-auto sm-p-0 icon-box flex flex-col gap-3 p-5 sm:pr-5">
+                <div class="w-full" *ngFor="let skill of skillKeys">
+                    <div class="text-[1rem] font-semibold text-[#ffdb70] tracking-tight pb-3">{{skill}}</div>
+                    <div class="w-full flex gap-2 pb-3 sm:flex-wrap">
+                        <div class="py-2 px-4 text-[0.8rem] rounded-md border border-1-[#ffdb70]
+                        hover:bg-[#ffdb70] hover:text-black" 
+                        *ngFor="let tech of skills[skill]">{{tech}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
