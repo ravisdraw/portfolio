@@ -19,7 +19,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class PortfolioComponent implements OnInit {
 
     profileDetails: any[] = [
-        { label: 'EMAIL', value: 'ravi.rk98@gmail.com', icon: 'mail-outline' },
+        { label: 'EMAIL', value: 'ravi23.professional@gmail.com', icon: 'mail-outline' },
         { label: 'PHONE', value: '8056251542', icon: 'phone-portrait-outline' },
         { label: 'BIRTHDAY', value: '11 April, 1998', icon: 'calendar-outline' },
         { label: 'LOCATION', value: 'Ambattur, Chennai', icon: 'location-outline' },
