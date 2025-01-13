@@ -11,10 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumeComponent implements OnInit {
 
+    downloadPDF:string = 'https://drive.google.com/file/d/1TmQsoIlSj7n_i-iiGvrL6p4kNzb9O-nB/view?usp=sharing';
+
+
     education: any[] = [
-        { school: 'Elite Matric Higher Secondary School', year: '2020-2020', mark: '480/500 (96%)' },
-        { school: 'Velammal Matric Higher Secondary School', year: '2020-2020', mark: '480/500 (96%)' },
-        { school: 'R.M.K Engineering College', year: '2020-2020', mark: '480/500 (96%)' },
+        { school: 'Elite Matric Higher Secondary School', year: '2014', mark: '480/500 (96%)' },
+        { school: 'Velammal Matric Higher Secondary School', year: '2016', mark: '1083/1200 (91%)' },
+        { school: 'R.M.K Engineering College', year: '2016-2020', mark: 'CGPA - 7.95' },
+    ]
+
+    experience: any[] = [
+        { school: 'Tata Consultancy Services', year: '2020-2023', mark: 'Marks and Spencer - UK Based E-commerce Client' },
+        { school: 'Intellect Design Arena Ltd', year: '2023-2025', mark: 'Custody Management System for ICICI Client' },
     ]
 
     skills: any = {

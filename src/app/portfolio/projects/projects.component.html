@@ -1,22 +1,22 @@
 <div class="w-full pt-8 pb-8">
-    <div class="w-[60%] sm:hidden flex gap-5" #project>
+    <!-- <div class="w-[60%] sm:hidden flex gap-5" #project>
         <div class="cursor-pointer font-medium transition-all ease-in text-[#9D9D9F] text-[0.9rem]"
             *ngFor="let item of projects" (click)="setActiveProject(item)">{{item}}</div>
-    </div>
+    </div> -->
 
     <!--Projects-->
     <div class="w-full flex flex-wrap gap-x-5 gap-y-8 pt-8 pr-5 justify-start">
-        <div class="group w-[16rem] flex flex-col cursor-pointer sm:w-auto" *ngFor="let project of projectData">
-            <div class="pb-1 relative overflow-hidden rounded-lg">
+        <div class="group w-[16rem] flex flex-col cursor-pointer sm:w-auto border rounded-md border-[#333333]" *ngFor="let project of jsProjects">
+            <div class="pb-1 relative overflow-hidden rounded-lg h-[10rem]">
                 <div class="w-[3rem] h-[3rem] rounded-md bg-[#383838] flex justify-center items-center 
                 absolute inset-0 m-auto z-50 opacity-0 group-hover:opacity-100">
-                    <ion-icon name="eye-outline" class="text-[1.3rem] text-[#ffdb70]"></ion-icon>
+                    <a href="{{project.viewUrl}}" target="_blank"><ion-icon name="eye-outline" class="text-[1.3rem] text-[#ffdb70]"></ion-icon></a>
                 </div>
-                <img src="../../../assets/portfolio/project-1.jpg" alt="project"
-                    class="rounded-lg transition duration-200 ease-in-out group-hover:brightness-50 group-hover:scale-125">
+                <img [src]="project.img" [alt]="project.title"
+                    class="rounded-lg transition duration-200 ease-in-out group-hover:brightness-50 group-hover:scale-125 h-full">
             </div>
-            <div class="text-white text-[0.9rem] py-1">{{project.title}}</div>
-            <div class="text-[#9D9D9F] text-[0.9rem]">{{project.category}}</div>
+            <div class="text-white text-[0.9rem] py-2 px-1">{{project.title}}</div>
+            <!-- <div class="text-[#9D9D9F] text-[0.9rem]">{{project.category}}</div> -->
         </div>
     </div>
 </div>

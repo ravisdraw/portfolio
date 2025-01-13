@@ -32,12 +32,18 @@
             <ion-icon class="text-[#ffdb70] text-[1.2rem]" name="heart-circle-outline"></ion-icon>
             <div class="w-[1px] opacity-50 h-[4.4rem] sm:h-[5.8rem] bg-[#ffdb70]"></div>
             <ion-icon class="text-[#ffdb70] text-[1.2rem]" name="heart-circle-outline"></ion-icon>
-            <div class="w-[1px] opacity-50 h-[4.4rem] sm:h-[5.8rem] bg-[#ffdb70]"></div>
-            <ion-icon class="text-[#ffdb70] text-[1.2rem]" name="heart-circle-outline"></ion-icon>
+            <!-- <div class="w-[1px] opacity-50 h-[4.4rem] sm:h-[5.8rem] bg-[#ffdb70]"></div>
+            <ion-icon class="text-[#ffdb70] text-[1.2rem]" name="heart-circle-outline"></ion-icon> -->
         </div>
         <div class="w-[90%] pt-2 sm:pt-0 sm:pl-3 flex flex-col gap-5">
-            <div class="text-[1.4rem] font-semibold text-white tracking-tight mb-3">Experience</div>
-            <div class="flex flex-col gap-1" *ngFor="let school of education">
+            <div class="flex gap-10 place-items-center justify-between pr-20">
+                <div class="text-[1.4rem] font-semibold text-white tracking-tight mb-3">Experience</div>
+                <a href="{{downloadPDF}}" target="_blank" class="sm:hidden p-3 text-[0.8rem] rounded-md text-[#ffdb70] font-medium border border-1-[#ffdb70]
+                hover:bg-[#ffdb70] hover:text-black cursor-pointer">Download Resume</a>
+                <a href="{{downloadPDF}}" target="_blank" class="hidden sm:block p-3 text-[0.8rem] rounded-md text-[#ffdb70] font-medium border border-1-[#ffdb70]
+                hover:bg-[#ffdb70] hover:text-black cursor-pointer">Resume</a>
+            </div>
+            <div class="flex flex-col gap-1" *ngFor="let school of experience">
                 <div class="text-[1rem] font-semibold text-white tracking-tight">{{school.school}}</div>
                 <div class="text-[0.8rem] font-medium text-[#ffdb70] tracking-tight">{{school.year}}</div>
                 <div class="text-[0.8rem] font-medium text-[#91ff70] tracking-tight">{{school.mark}}</div>

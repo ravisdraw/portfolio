@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import certificateData from '../../../assets/localData/certificates';
 
 @Component({
   selector: 'app-achievements',
@@ -15,6 +16,8 @@ export class AchievementsComponent implements OnInit {
     { date: 'November 20, 2023', title: 'Adobe After Effects', desc: 'asdasdawea asdasd asdasda asdasd asdasdasd', img_url: 'asdasdasdasd' },
     { date: 'December 25, 2023', title: 'Adobe InDesign', desc: 'asdasdawea asdasd asdasda asdasd asdasdasd', img_url: 'asdasdasdasd' }
   ]
+
+  certificateData:any = certificateData;
 
   constructor() { }
 

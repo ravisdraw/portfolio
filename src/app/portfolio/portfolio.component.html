@@ -20,7 +20,18 @@
                         </div>
                         <div class="overflow-hidden">
                             <p class="text-[#878787] text-[12px] font-semibold m-0 p-0">{{profile.label}}</p>
-                            <p class="text-white text-[14px] m-0 p-0">{{profile.value}}</p>
+                            <p class="text-white text-[14px] m-0 p-0" *ngIf="profile.label === 'EMAIL'">
+                                <a [href]="'https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=' + profile.value" target="_blank" class="text-white underline cursor-pointer">{{profile.value}}</a>
+                            </p>
+                            <p class="text-white text-[14px] m-0 p-0" *ngIf="profile.label === 'LOCATION'">
+                                <a [href]="profile.link" target="_blank" class="text-white underline cursor-pointer">{{profile.value}}</a>
+                            </p>
+                            <p class="text-white text-[14px] m-0 p-0" *ngIf="profile.label === 'PHONE'">
+                                <a [href]="'tel:' + profile.value" class="text-white underline cursor-pointer">{{profile.value}}</a>
+                            </p>
+                            <p class="text-white text-[14px] m-0 p-0" *ngIf="profile.label !== 'EMAIL' && profile.label !== 'LOCATION' && profile.label !== 'PHONE'">
+                                {{profile.value}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -57,15 +68,8 @@
 
             <!--About Me-->
             <div *ngIf="selectedNavbar==='About Me'" [@toggle] class="w-full flex flex-col gap-8 py-5 pr-5">
-                <div class="text-[#878787] text-[0.9rem]">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Aspernatur adipisci eligendi ut sunt necessitatibus aperiam quae saepe, obcaecati dolorem est animi
-                    debitis repellendus, inventore illo exercitationem reiciendis dolores quod. Vel.</div>
-                <div class="text-[#878787] text-[0.9rem]">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Aspernatur adipisci eligendi ut sunt necessitatibus aperiam quae saepe, obcaecati dolorem est animi
-                    debitis repellendus, inventore illo exercitationem reiciendis dolores quod. Vel. Lorem ipsum dolor
-                    sit amet consectetur adipisicing elit. Exercitationem perspiciatis labore, repudiandae vitae fuga,
-                    error enim odit atque amet dignissimos dolores at explicabo officia quisquam iure facilis velit
-                    molestias. Fugiat.</div>
+                <div class="text-[#878787] text-[0.9rem]">I am Ravikumar, a passionate Software Developer with over 4 years of experience in cutting-edge technologies like JavaScript, Angular, Node.js, Python, and more.</div>
+                <div class="text-[#878787] text-[0.9rem]">Adept at creating dynamic, user-focused applications, I specialize in both frontend and backend development, as well as automation testing. My work is guided by strong analytical skills, a collaborative mindset, and a drive for delivering impactful results. Explore my portfolio to see how I translate innovation into success stories!</div>
                 <div class="text-[1.4rem] font-semibold text-white tracking-tight">What I'm Doing</div>
                 <!--What I'm Doing-->
                 <div class="w-full flex flex-wrap gap-x-6 gap-y-5 sm:gap-x-0 justify-center sm:flex-col">
@@ -79,19 +83,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-[1.4rem] font-semibold text-white tracking-tight">Testimonials</div>
-                <!--Testimonials-->
+                <div class="text-[1.4rem] font-semibold text-white tracking-tight">Key Achievements</div>
+                <!--keyAchievements-->
                 <div class="testimonials flex overflow-x-auto gap-8">
-                    <div class="flex-none pb-5 relative" *ngFor="let item of whatIamDoing">
-                        <div class="icon-box w-[25rem] flex p-8">
-                            <div class="w-[30%]">
+                    <div class="flex-none pb-5 relative" *ngFor="let item of keyAchievements">
+                        <div class="icon-box w-[42rem] flex p-8">
+                            <!-- <div class="w-[30%]">
                                 <div
                                     class="w-20 h-20 z-50 bg-[#333333] rounded-xl flex justify-center place-items-center">
                                     <img src="../../assets/portfolio/my-avatar.png" alt="avatar" class="w-[4rem]">
                                 </div>
-                            </div>
-                            <div class="w-[70%] flex flex-col gap-3">
-                                <div class="text-white font-semibold text-[1rem]">{{item.title}}</div>
+                            </div> -->
+                            <div class="w-[100%] flex flex-col gap-3">
+                                <div class="text-white font-semibold text-[1rem]"><span class="px-5 text-[#ffdb70]"><ion-icon class="text-[2rem]" [attr.name]="item.icon"></ion-icon></span>{{item.title}}</div>
                                 <div class="text-[#878787] text-[0.8rem]">{{item.desc}}</div>
                             </div>
                         </div>

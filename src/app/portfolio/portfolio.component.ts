@@ -2,6 +2,10 @@ import { style, transition, trigger, state, animate } from '@angular/animations'
 import { DOCUMENT, ViewportScroller } from '@angular/common';
 import { Component, ElementRef, HostListener, Inject, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { EmailService } from '../email.service';
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+
+
 
 @Component({
     selector: 'app-portfolio',
@@ -22,7 +26,7 @@ export class PortfolioComponent implements OnInit {
         { label: 'EMAIL', value: 'ravi23.professional@gmail.com', icon: 'mail-outline' },
         { label: 'PHONE', value: '8056251542', icon: 'phone-portrait-outline' },
         { label: 'BIRTHDAY', value: '11 April, 1998', icon: 'calendar-outline' },
-        { label: 'LOCATION', value: 'Ambattur, Chennai', icon: 'location-outline' },
+        { label: 'LOCATION', value: 'Ambattur, Chennai', icon: 'location-outline', link: 'https://maps.app.goo.gl/4YJxLmp54qtgwhVE7' },
         { label: 'YEAR OF EXPERIENCE', value: '4 Years', icon: 'briefcase-outline' },
     ]
 
@@ -35,10 +39,23 @@ export class PortfolioComponent implements OnInit {
     ]
 
     whatIamDoing: any[] = [
-        { title: 'Web Development', desc: 'Building responsive and scalable web applications using modern technologies.', icon: 'earth-outline' },
-        { title: 'Mobile App Development', desc: 'Creating native and hybrid mobile applications for Android and iOS platforms.', icon: 'location-outline' },
-        { title: 'Data Analysis', desc: 'Analyzing and interpreting complex data sets to drive business decisions.', icon: 'location-outline' },
-        { title: 'Cloud Computing', desc: 'Designing and deploying scalable cloud infrastructure for efficient computing.', icon: 'location-outline' }
+        { title: 'Frontend Excellence', desc: 'Delivering seamless and interactive user interfaces for e-commerce and banking applications using modern frameworks like Angular', icon: 'logo-angular' },
+        { title: 'Expanding Backend Expertise', desc: 'Exploring backend technologies like Node.js and MongoDB to build end-to-end solutions that complement my frontend development skills.', icon: 'server-outline' },
+        { title: 'UI/UX Crafting', desc: 'Designing intuitive and engaging user experiences with tools like Figma and Material UI for dynamic web applications.', icon: 'brush-outline' },
+        { title: 'Optimized Solutions for Diverse Domains', desc: 'Contributing to robust software solutions across industries like e-commerce and banking with a strong focus on performance and scalability.', icon: 'color-wand-outline' }
+    ]
+
+    keyAchievements:any[] = [
+        {
+            title : 'Revenue Growth and Recognition',
+            desc: 'Spearheaded an application redesign that resulted in a remarkable 72% revenue growth. This milestone earned me the "Star of the Month" award and immense customer appreciation for delivering an exceptional user experience.',
+            icon: 'cash-outline'
+        },
+        {
+            title : 'Dynamic Framework Development',
+            desc: 'Developed a revolutionary framework that enabled the rapid creation of over 200+ screens in just two months. By automating form page generation, manual coding time was reduced to under a minute per page. This innovation accelerated project completion and simplified updates, with changes to any screen now possible in 1-2 minutes.',
+            icon: 'hourglass-outline'
+        }
     ]
 
     title:string = "About Me"
@@ -75,12 +92,29 @@ export class PortfolioComponent implements OnInit {
         //     }
         // });
     }
-    constructor() {
+    constructor(private emailService: EmailService) {
      }
 
 
     ngOnInit(): void {
     }
+
+    public sendEmail(form:any) {
+        // e.preventDefault();
+    
+        emailjs
+      .sendForm('service_i401h0e', 'template_jxtp359', form, {
+        publicKey: 'a8WKu-TWAi6dKQQMT',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', (error as EmailJSResponseStatus).text);
+        },
+      );
+      }
 
 
     setActiveNavbar(name: string) {
@@ -140,7 +174,8 @@ export class PortfolioComponent implements OnInit {
     }
 
     submitForm() {
-        console.log(this.contactForm.value)
+        // console.log(this.contactForm.value)
+        this.sendEmail(this.contactForm.value);
     }
 
     scrollToTop() {

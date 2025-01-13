@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import  javascriptProjects  from '../../../assets/localData/jsProjects'
 
 @Component({
     selector: 'app-projects',
@@ -8,11 +9,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class ProjectsComponent implements OnInit {
 
     projects = [
-        'All',
-        'Web Design',
-        'Applications',
-        'Web Development'
-    ]
+        'All']
+
+    jsProjects:any = javascriptProjects;
 
     projectDetails:any = {
         'Web Design': [
